@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>New Star Tailor | Gongabu, Kathmandu, Nepal</title>
+
+  <!-- Mobile friendly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Basic SEO -->
+  <meta name="description"
+        content="New Star Tailor in Gongabu, Kathmandu, Nepal offers custom tailoring, alterations, uniforms and party wear with perfect fitting and friendly service. Call 9849250546 to book." />
+  <meta name="keywords"
+        content="New Star Tailor, tailor Gongabu, tailor Kathmandu, custom tailoring Nepal, clothes alteration, party wear, uniform stitching" />
+
+  <!-- Social preview -->
+  <meta property="og:title" content="New Star Tailor | Gongabu, Kathmandu" />
+  <meta property="og:description"
+        content="Modern tailoring with perfect fitting, custom designs and friendly service in Gongabu, Kathmandu, Nepal." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --bg-dark:#050816;
+      --bg-card:rgba(9,9,30,0.9);
+      --accent:#4adeff;
+      --accent-2:#a855ff;
+      --text-main:#f9fafb;
+      --text-muted:#9ca3af;
+      --border-subtle:rgba(148,163,184,0.3);
+      --radius-xl:22px;
+      --shadow-soft:0 18px 45px rgba(0,0,0,0.55);
+    }
+
+    body {
+      font-family:"Poppins",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+      background:
+        radial-gradient(circle at 0% 0%,rgba(148,163,253,0.18),transparent 55%),
+        radial-gradient(circle at 100% 100%,rgba(45,212,191,0.16),transparent 55%),
+        var(--bg-dark);
+      color:var(--text-main);
+      line-height:1.6;
+      scroll-behavior:smooth;
+    }
+
+    a { color:inherit; text-decoration:none; }
+    img { max-width:100%; display:block; border-radius:14px; }
+
+    .wrapper { max-width:1100px; margin:0 auto; padding:0 16px 60px; }
+
+    header {
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:blur(16px);
+      background:linear-gradient(to bottom,rgba(5,8,22,0.96),rgba(5,8,22,0.78));
+      border-bottom:1px solid rgba(148,163,184,0.25);
+    }
+    .nav {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 18px; max-width:1100px; margin:0 auto;
+    }
+    .logo {
+      font-size:1.1rem; font-weight:600; letter-spacing:.06em;
+      text-transform:uppercase; display:flex; align-items:center; gap:8px;
+    }
+    .logo-pill {
+      width:24px; height:24px; border-radius:999px;
+      background:conic-gradient(from 140deg,#4adeff,#a855ff,#4adeff);
+      box-shadow:0 0 16px rgba(74,222,255,0.7);
+    }
+    .nav-links { display:flex; gap:18px; font-size:.9rem; }
+    .nav-links a {
+      position:relative; color:var(--text-muted); transition:color .2s ease;
+    }
+    .nav-links a::after {
+      content:""; position:absolute; left:0; bottom:-4px;
+      width:0; height:2px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      border-radius:999px; transition:width .2s ease;
+    }
+    .nav-links a:hover { color:var(--text-main); }
+    .nav-links a:hover::after { width:100%; }
+
+    .nav-cta {
+      font-size:.86rem; padding:7px 14px; border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      background:radial-gradient(circle at 0 0,rgba(74,222,255,0.2),rgba(15,23,42,0.9));
+      box-shadow:0 7px 22px rgba(15,23,42,0.8);
+      cursor:pointer;
+      transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;
+    }
+    .nav-cta:hover {
+      transform:translateY(-1px);
+      border-color:var(--accent);
+      box-shadow:0 8px 28px rgba(74,222,255,0.35);
+    }
+
+    .nav-toggle { display:none; flex-direction:column; gap:4px; cursor:pointer; }
+    .nav-toggle span {
+      width:20px; height:2px; border-radius:999px; background:#e5e7eb;
+    }
+
+    @media (max-width:720px) {
+      .nav-links {
+        position:absolute; inset:52px 16px auto;
+        padding:14px 16px 10px; flex-direction:column;
+        border-radius:18px;
+        background:rgba(15,23,42,0.98);
+        border:1px solid rgba(148,163,184,0.4);
+        box-shadow:0 20px 40px rgba(0,0,0,0.75);
+        display:none;
+      }
+      .nav-links.show { display:flex; }
+      .nav-cta { display:none; }
+      .nav-toggle { display:flex; }
+    }
+
+    .hero {
+      padding:48px 0 28px;
+      display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+      gap:32px; align-items:center;
+    }
+    @media (max-width:880px) { .hero { grid-template-columns:minmax(0,1fr); } }
+
+    .hero-kicker {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:4px 10px; border-radius:999px; font-size:.75rem;
+      text-transform:uppercase; letter-spacing:.12em;
+      background:rgba(15,23,42,0.85);
+      border:1px solid rgba(148,163,184,0.55);
+      color:var(--text-muted); margin-bottom:14px;
+    }
+    .hero-kicker-dot {
+      width:8px; height:8px; border-radius:999px;
+      background:#4ade80; box-shadow:0 0 12px rgba(74,222,128,0.9);
+    }
+    .hero-title {
+      font-size:clamp(2.1rem,3.2vw + 1.2rem,3.1rem);
+      font-weight:600; line-height:1.12; margin-bottom:14px;
+    }
+    .hero-title span {
+      background:linear-gradient(120deg,var(--accent),#38bdf8,var(--accent-2));
+      -webkit-background-clip:text; color:transparent;
+    }
+    .hero-subtitle {
+      font-size:.96rem; color:var(--text-muted);
+      max-width:520px; margin-bottom:24px;
+    }
+
+    .hero-cta-row { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:12px; }
+
+    .btn-primary,.btn-ghost {
+      font-size:.9rem; padding:10px 18px; border-radius:999px;
+      border:1px solid transparent; cursor:pointer;
+      transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease,
+                 background .15s ease,color .15s ease;
+      display:inline-flex; align-items:center; gap:6px; white-space:nowrap;
+    }
+    .btn-primary {
+      background:radial-gradient(circle at 0 0,rgba(74,222,255,0.16),rgba(59,130,246,0.9));
+      border-color:rgba(56,189,248,0.9);
+      box-shadow:0 16px 40px rgba(37,99,235,0.55);
+      color:#e5f3ff;
+    }
+    .btn-primary:hover {
+      transform:translateY(-1px) scale(1.01);
+      box-shadow:0 18px 46px rgba(56,189,248,0.8);
+      border-color:#4adeff;
+    }
+    .btn-ghost {
+      background:rgba(15,23,42,0.8);
+      color:var(--text-muted);
+      border-color:rgba(148,163,184,0.7);
+    }
+    .btn-ghost:hover {
+      background:rgba(15,23,42,0.95);
+      color:var(--text-main);
+      border-color:var(--accent-2);
+      box-shadow:0 12px 30px rgba(15,23,42,0.9);
+    }
+
+    .hero-meta {
+      font-size:.78rem; color:var(--text-muted);
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:4px;
+    }
+    .hero-meta-badge {
+      padding:3px 10px; border-radius:999px;
+      border:1px solid rgba(148,163,184,0.65);
+      font-size:.72rem; text-transform:uppercase; letter-spacing:.13em;
+    }
+
+    .hero-card {
+      position:relative; border-radius:var(--radius-xl);
+      padding:18px 18px 22px;
+      background:radial-gradient(circle at 0 0,rgba(74,222,255,0.17),transparent 52%)
+                 rgba(15,23,42,0.96);
+      border:1px solid rgba(148,163,184,0.4);
+      box-shadow:var(--shadow-soft); overflow:hidden;
+    }
+    .hero-card-tag {
+      position:absolute; top:14px; right:16px;
+      font-size:.7rem; padding:4px 10px; border-radius:999px;
+      background:rgba(15,23,42,0.9);
+      border:1px solid rgba(148,163,184,0.6);
+      color:var(--text-muted);
+      text-transform:uppercase; letter-spacing:.12em;
+    }
+    .hero-card-main {
+      border-radius:18px; border:1px solid rgba(248,250,252,0.3);
+      padding:18px 18px 16px;
+      background:radial-gradient(circle at 0 40%,rgba(248,250,252,0.08),transparent 40%)
+                 linear-gradient(135deg,rgba(15,23,42,0.96),rgba(15,23,42,0.88));
+    }
+    .hero-card-title { font-size:1.35rem; font-weight:500; margin-bottom:4px; }
+    .hero-card-subtitle { font-size:.8rem; color:var(--text-muted); margin-bottom:14px; }
+
+    .hero-card-grid {
+      display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px; margin-bottom:12px;
+    }
+    .hero-card-pill {
+      padding:9px 11px; border-radius:14px;
+      background:rgba(15,23,42,0.98);
+      border:1px solid rgba(148,163,184,0.5);
+      font-size:.78rem;
+    }
+    .hero-card-pill span {
+      display:block; font-size:.68rem;
+      text-transform:uppercase; letter-spacing:.12em;
+      color:var(--text-muted); margin-bottom:3px;
+    }
+    .hero-card-footer {
+      display:flex; justify-content:space-between; align-items:center;
+      margin-top:2px; font-size:.78rem; color:var(--text-muted);
+    }
+    .status-dot {
+      width:8px; height:8px; border-radius:999px;
+      background:#22c55e; box-shadow:0 0 14px rgba(34,197,94,0.9);
+      margin-right:6px;
+    }
+
+    section { margin-top:36px; }
+    .section-label {
+      font-size:.82rem; text-transform:uppercase;
+      letter-spacing:.18em; color:var(--text-muted); margin-bottom:4px;
+    }
+    .section-title { font-size:1.3rem; font-weight:500; margin-bottom:10px; }
+    .section-subtitle {
+      font-size:.9rem; color:var(--text-muted);
+      margin-bottom:18px; max-width:620px;
+    }
+
+    .about-grid {
+      display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:22px;
+    }
+    @media (max-width:880px) { .about-grid { grid-template-columns:minmax(0,1fr); } }
+
+    .card {
+      border-radius:var(--radius-xl);
+      background:var(--bg-card);
+      border:1px solid var(--border-subtle);
+      padding:18px 18px 16px;
+      box-shadow:var(--shadow-soft);
+    }
+    .about-list { list-style:none; display:grid; gap:10px; font-size:.9rem; }
+    .about-list li::before {
+      content:"★"; color:#eab308; font-size:.75rem; margin-right:6px;
+    }
+
+    .services-grid {
+      display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px;
+    }
+    @media (max-width:920px) { .services-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:640px) { .services-grid { grid-template-columns:minmax(0,1fr); } }
+
+    .service-card {
+      border-radius:18px;
+      background:rgba(10,16,38,0.96);
+      border:1px solid rgba(148,163,184,0.5);
+      padding:14px 13px 13px;
+      font-size:.88rem;
+      display:flex; flex-direction:column; gap:4px;
+    }
+    .service-title { font-size:.94rem; font-weight:500; }
+    .service-chip {
+      display:inline-flex; align-items:center; gap:6px;
+      font-size:.72rem; padding:3px 8px; border-radius:999px;
+      margin-top:4px; background:rgba(15,23,42,0.9); color:var(--text-muted);
+    }
+
+    .gallery-grid {
+      display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px;
+    }
+    @media (max-width:720px) { .gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    .gallery-item {
+      position:relative; overflow:hidden; border-radius:16px;
+      border:1px solid rgba(148,163,184,0.6);
+      height:140px;
+      background:linear-gradient(135deg,rgba(56,189,248,0.18),rgba(168,85,247,0.26));
+    }
+    .gallery-item span {
+      position:absolute; left:10px; bottom:10px;
+      font-size:.78rem;
+      background:rgba(15,23,42,0.85);
+      padding:3px 8px; border-radius:999px;
+      border:1px solid rgba(148,163,184,0.7);
+    }
+
+    .price-table {
+      width:100%; border-collapse:collapse; margin-top:8px; font-size:.86rem;
+    }
+    .price-table thead { background:rgba(15,23,42,0.95); }
+    .price-table th,.price-table td {
+      padding:8px 10px; border-bottom:1px solid rgba(148,163,184,0.4); text-align:left;
+    }
+    .price-table th { font-weight:500; color:var(--text-muted); }
+    .price-table tr:last-child td { border-bottom:none; }
+    .price-tag { font-weight:500; color:#4ade80; }
+
+    .testimonials-grid {
+      display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px;
+    }
+    @media (max-width:920px) { .testimonials-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:640px) { .testimonials-grid { grid-template-columns:minmax(0,1fr); } }
+    .testimonial-card {
+      border-radius:16px; padding:12px 12px 11px;
+      background:rgba(10,16,38,0.96);
+      border:1px solid rgba(148,163,184,0.6);
+      font-size:.84rem;
+    }
+    .testimonial-name { margin-top:8px; font-size:.8rem; color:var(--text-muted); }
+
+    .contact-grid {
+      display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:20px;
+    }
+    @media (max-width:920px) { .contact-grid { grid-template-columns:minmax(0,1fr); } }
+
+    .contact-form { display:grid; gap:10px; font-size:.88rem; }
+    .field label {
+      display:block; margin-bottom:4px; font-size:.82rem; color:var(--text-muted);
+    }
+    .field input,.field textarea {
+      width:100%; border-radius:999px;
+      border:1px solid rgba(148,163,184,0.7);
+      background:rgba(15,23,42,0.98);
+      padding:8px 12px; color:var(--text-main); font-size:.88rem; outline:none;
+    }
+    .field textarea {
+      border-radius:16px; min-height:90px; resize:vertical; padding-top:8px;
+    }
+    .field input:focus,.field textarea:focus {
+      border-color:var(--accent);
+      box-shadow:0 0 0 1px rgba(56,189,248,0.7);
+    }
+
+    .contact-details { font-size:.88rem; display:grid; gap:8px; }
+    .contact-details p span {
+      color:var(--text-muted); font-size:.8rem;
+      text-transform:uppercase; letter-spacing:.16em;
+      display:block; margin-bottom:2px;
+    }
+    .map-placeholder {
+      margin-top:10px; border-radius:16px;
+      border:1px dashed rgba(148,163,184,0.7);
+      padding:10px; font-size:.78rem; color:var(--text-muted);
+    }
+
+    footer {
+      border-top:1px solid rgba(148,163,184,0.4);
+      padding:18px 16px 26px;
+      font-size:.8rem; color:var(--text-muted); text-align:center;
+    }
+    footer a { text-decoration:underline dotted; }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-pill"></div>
+        <span>New Star Tailor</span>
+      </div>
+
+      <div class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </div>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a href="#contact" class="nav-cta">Book Now</a>
+    </nav>
+  </header>
+
+  <main class="wrapper">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-kicker">
+          <span class="hero-kicker-dot"></span>
+          Open for tailoring orders
+        </div>
+
+        <h1 class="hero-title">
+          <span>New Star Tailor</span> in Gongabu, Kathmandu.
+        </h1>
+        <p class="hero-subtitle">
+          Modern tailoring with perfect fittings, clean finishing and friendly service.
+          From daily wear to party outfits, we stitch clothes that feel comfortable and look smart.
+        </p>
+
+        <div class="hero-cta-row">
+          <!-- REAL phone / WhatsApp -->
+          <a href="tel:+9779849250546" class="btn-primary">
+            Call 9849250546
+          </a>
+          <a href="https://wa.me/9779849250546" target="_blank" class="btn-ghost">
+            WhatsApp us
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span class="hero-meta-badge">Gongabu • Kathmandu • Nepal</span>
+          <span>Open: Every day • 9:00 – 20:00 (edit if different)</span>
+        </div>
+      </div>
+
+      <!-- HERO CARD -->
+      <aside class="hero-card" aria-label="Shop quick details">
+        <div class="hero-card-tag">Shop overview</div>
+        <div class="hero-card-main">
+          <div class="hero-card-title">Today’s availability</div>
+          <div class="hero-card-subtitle">
+            Walk-in customers welcome. For big orders and events, booking is recommended.
+          </div>
+
+          <div class="hero-card-grid">
+            <div class="hero-card-pill">
+              <span>Average delivery</span>
+              3–5 working days
+            </div>
+            <div class="hero-card-pill">
+              <span>Location</span>
+              Gongabu, Kathmandu, Nepal
+            </div>
+            <div class="hero-card-pill">
+              <span>Contact</span>
+              9849250546 (Call / WhatsApp)
+            </div>
+            <div class="hero-card-pill">
+              <span>Coordinates</span>
+              27°44'08"N, 85°18'38"E
+            </div>
+          </div>
+
+          <div class="hero-card-footer">
+            <div style="display:flex;align-items:center;">
+              <span class="status-dot"></span>
+              Taking new orders now
+            </div>
+            <span>New Star Tailor • Est. 2025</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <p class="section-label">About</p>
+      <h2 class="section-title">A modern tailor with personal care.</h2>
+      <p class="section-subtitle">
+        New Star Tailor is based in Gongabu, Kathmandu. We focus on clean fitting, neat finishing
+        and clear communication, so you always know what you are getting and when it will be ready.
+      </p>
+
+      <div class="about-grid">
+        <div class="card">
+          <ul class="about-list">
+            <li>Friendly one-to-one measurement and fitting for every customer.</li>
+            <li>Custom designs for daily wear, office, school and special events.</li>
+            <li>Clean stitching, neat lines and strong finishing that lasts longer.</li>
+            <li>Clear pricing before we start, with no hidden charges.</li>
+            <li>Located in Gongabu, easy to reach from Bus Park and nearby areas.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p style="font-size:0.9rem;margin-bottom:10px;">
+            💡 <strong>Tip for yourself:</strong> you can later edit this paragraph
+            and write in your own style about why you opened New Star Tailor and what you enjoy most.
+          </p>
+          <p style="font-size:0.86rem;color:var(--text-muted);">
+            Example: “I started New Star Tailor to give customers a place where they can share their idea
+            and walk out with clothes that truly fit them. I focus on neat work, on-time delivery and
+            fair pricing for everyone.”
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <p class="section-label">Services</p>
+      <h2 class="section-title">Tailoring services at New Star Tailor.</h2>
+      <p class="section-subtitle">
+        These are example services. You can change the text and add more based on what you offer in your shop.
+      </p>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <h3 class="service-title">Custom outfit design</h3>
+          <p>Bring your idea or photo, and we stitch a full outfit with your measurements and fabric choice.</p>
+          <div class="service-chip">Popular service</div>
+        </article>
+
+        <article class="service-card">
+          <h3 class="service-title">Pant & shirt alterations</h3>
+          <p>Shortening, tightening or adjusting your ready-made clothes so they fit you properly.</p>
+          <div class="service-chip">Fast delivery</div>
+        </article>
+
+        <article class="service-card">
+          <h3 class="service-title">Party & event wear</h3>
+          <p>Special designs for weddings, receptions, parties and festivals with detailed finishing.</p>
+          <div class="service-chip">Pre-booking advised</div>
+        </article>
+
+        <article class="service-card">
+          <h3 class="service-title">School & office uniforms</h3>
+          <p>Uniform stitching for students and staff with organised measurement and size records.</p>
+          <div class="service-chip">Bulk orders</div>
+        </article>
+
+        <article class="service-card">
+          <h3 class="service-title">Repair & fixing</h3>
+          <p>Repair torn seams, broken zips and loose buttons so you can reuse your favourite clothes.</p>
+          <div class="service-chip">Budget friendly</div>
+        </article>
+
+        <article class="service-card">
+          <h3 class="service-title">Urgent / same-day work</h3>
+          <p>For urgent needs (if time allows) with an extra urgent charge. Contact us to check availability.</p>
+          <div class="service-chip">Limited slots</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <p class="section-label">Gallery</p>
+      <h2 class="section-title">Sample work from New Star Tailor.</h2>
+      <p class="section-subtitle">
+        Later, you can replace these coloured blocks with real photos of your work (outfits, uniforms,
+        shop interior, etc.).
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <span>Men’s outfit</span>
+        </div>
+        <div class="gallery-item">
+          <span>Women’s dress</span>
+        </div>
+        <div class="gallery-item">
+          <span>School uniform</span>
+        </div>
+        <div class="gallery-item">
+          <span>Pant alteration</span>
+        </div>
+        <div class="gallery-item">
+          <span>Party wear</span>
+        </div>
+        <div class="gallery-item">
+          <span>Inside the shop</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+      <p class="section-label">Pricing</p>
+      <h2 class="section-title">Simple sample price list.</h2>
+      <p class="section-subtitle">
+        Change the prices to your real rates. Currency is in Nepali Rupees (Rs).
+      </p>
+
+      <div class="card">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>From</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pant shortening (length)</td>
+              <td class="price-tag">Rs. 300</td>
+              <td>1–2 day delivery</td>
+            </tr>
+            <tr>
+              <td>Shirt / kurta fitting</td>
+              <td class="price-tag">Rs. 400</td>
+              <td>Includes trial fitting</td>
+            </tr>
+            <tr>
+              <td>Complete outfit (top & bottom)</td>
+              <td class="price-tag">Rs. 2500</td>
+              <td>Fabric not included</td>
+            </tr>
+            <tr>
+              <td>Party dress / sherwani</td>
+              <td class="price-tag">Rs. 4500</td>
+              <td>Price depends on design</td>
+            </tr>
+            <tr>
+              <td>Urgent / same-day work</td>
+              <td class="price-tag">+30%</td>
+              <td>Only if time is available</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <p class="section-label">Reviews</p>
+      <h2 class="section-title">What customers say.</h2>
+      <p class="section-subtitle">
+        When you have real customers, ask them for a short review and replace these sample texts.
+      </p>
+
+      <div class="testimonials-grid">
+        <article class="testimonial-card">
+          “Good fitting, clean stitching and delivery on time. Happy with New Star Tailor.”
+          <p class="testimonial-name">— Local customer</p>
+        </article>
+
+        <article class="testimonial-card">
+          “I stitched my uniform here. They followed the measurements properly and the size was perfect.”
+          <p class="testimonial-name">— Student from Gongabu area</p>
+        </article>
+
+        <article class="testimonial-card">
+          “Easy to talk, clear price and they kept my size for future orders.”
+          <p class="testimonial-name">— Regular client</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Visit or contact New Star Tailor.</h2>
+      <p class="section-subtitle">
+        You can call directly, send a WhatsApp message, or fill in this simple enquiry form.
+      </p>
+
+      <div class="contact-grid">
+        <!-- CONTACT FORM -->
+        <div class="card">
+          <!-- TODO: change email here to your real email -->
+          <form class="contact-form" action="mailto:youremail@example.com" method="post" enctype="text/plain">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="Name" type="text" placeholder="Your full name" required />
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone / WhatsApp</label>
+              <input id="phone" name="Phone" type="text" placeholder="98..." required />
+            </div>
+
+            <div class="field">
+              <label for="message">What would you like?</label>
+              <textarea id="message" name="Message"
+                        placeholder="Tell us the service, date and any details." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">Send enquiry</button>
+          </form>
+
+          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:8px;">
+            This form opens your email app to send the message.
+            Later you can connect it to an online form service if you want.
+          </p>
+        </div>
+
+        <!-- CONTACT DETAILS -->
+        <div class="card">
+          <div class="contact-details">
+            <p>
+              <span>Address</span>
+              New Star Tailor<br />
+              Gongabu, Kathmandu, Nepal
+            </p>
+            <p>
+              <span>Phone</span>
+              9849250546 (Call / WhatsApp)
+            </p>
+            <p>
+              <span>Coordinates</span>
+              27°44'08"N, 85°18'38"E
+            </p>
+            <p>
+              <span>Opening hours</span>
+              Every day: 9:00 – 20:00<br />
+              (Change this if your timing is different.)
+            </p>
+          </div>
+
+          <div class="map-placeholder">
+            📍 Map: After you add New Star Tailor to Google Maps,
+            you can embed a real map here using “Share &gt; Embed a map” on Google Maps
+            for your coordinates (27°44'08"N, 85°18'38"E).
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>© <span id="year"></span> New Star Tailor, Gongabu, Kathmandu, Nepal. All rights reserved.</div>
+    <div style="margin-top:4px;">
+      Website for New Star Tailor • Simple HTML, CSS &amp; JavaScript.
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+      });
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
