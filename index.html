@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>New Star Tailor | Gongabu, Kathmandu, Nepal</title>
+  <title>New Star Tailors | Gongabu, Kathmandu, Nepal</title>
 
   <!-- Mobile friendly -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,12 +12,12 @@
 
   <!-- Basic SEO -->
   <meta name="description"
-        content="New Star Tailor in Gongabu, Kathmandu, Nepal offers custom tailoring, alterations, uniforms and party wear with perfect fitting and friendly service. Call 9849250546 to book." />
+        content="New Star Tailors in Gongabu, Kathmandu, Nepal offers custom tailoring, alterations, uniforms and party wear with proper fitting and friendly service." />
 
   <!-- Social preview -->
-  <meta property="og:title" content="New Star Tailor | Gongabu, Kathmandu" />
+  <meta property="og:title" content="New Star Tailors | Gongabu, Kathmandu" />
   <meta property="og:description"
-        content="Modern tailoring with perfect fitting, custom designs and friendly service in Gongabu, Kathmandu, Nepal." />
+        content="Modern tailoring with proper fitting, clean finishing and friendly service in Gongabu, Kathmandu, Nepal." />
   <meta property="og:type" content="website" />
 
   <!-- Google Font -->
@@ -50,6 +50,17 @@
       color:var(--text-main);
       line-height:1.6;
       scroll-behavior:smooth;
+      transition:background-color .3s ease,color .3s ease;
+    }
+
+    /* Light mode overrides */
+    body.light-mode {
+      --bg-dark:#f3f4f6;
+      --bg-card:#ffffff;
+      --text-main:#0f172a;
+      --text-muted:#6b7280;
+      --border-subtle:rgba(148,163,184,0.5);
+      background:#f3f4f6;
     }
 
     a { color:inherit; text-decoration:none; }
@@ -63,9 +74,15 @@
       background:linear-gradient(to bottom,rgba(5,8,22,0.96),rgba(5,8,22,0.78));
       border-bottom:1px solid rgba(148,163,184,0.25);
     }
+    body.light-mode header {
+      background:rgba(243,244,246,0.98);
+      border-bottom-color:rgba(148,163,184,0.5);
+    }
+
     .nav {
       display:flex; align-items:center; justify-content:space-between;
       padding:14px 18px; max-width:1100px; margin:0 auto;
+      gap:10px;
     }
     .logo {
       font-size:1.1rem; font-weight:600; letter-spacing:.06em;
@@ -76,6 +93,7 @@
       background:conic-gradient(from 140deg,#4adeff,#a855ff,#4adeff);
       box-shadow:0 0 16px rgba(74,222,255,0.7);
     }
+
     .nav-links { display:flex; gap:18px; font-size:.9rem; }
     .nav-links a {
       position:relative; color:var(--text-muted); transition:color .2s ease;
@@ -96,6 +114,7 @@
       box-shadow:0 7px 22px rgba(15,23,42,0.8);
       cursor:pointer;
       transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;
+      white-space:nowrap;
     }
     .nav-cta:hover {
       transform:translateY(-1px);
@@ -107,8 +126,36 @@
     .nav-toggle span {
       width:20px; height:2px; border-radius:999px; background:#e5e7eb;
     }
+    body.light-mode .nav-toggle span { background:#111827; }
+
+    .nav-controls {
+      display:flex; align-items:center; gap:8px;
+    }
+    .nav-pill {
+      font-size:.78rem;
+      padding:5px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.7);
+      background:rgba(15,23,42,0.85);
+      color:var(--text-muted);
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:4px;
+    }
+    body.light-mode .nav-pill {
+      background:#e5e7eb;
+      color:#111827;
+    }
+    .nav-pill span.active-lang {
+      font-weight:600;
+      color:var(--text-main);
+    }
 
     @media (max-width:720px) {
+      .nav {
+        flex-wrap:wrap;
+      }
       .nav-links {
         position:absolute; inset:52px 16px auto;
         padding:14px 16px 10px; flex-direction:column;
@@ -117,6 +164,9 @@
         border:1px solid rgba(148,163,184,0.4);
         box-shadow:0 20px 40px rgba(0,0,0,0.75);
         display:none;
+      }
+      body.light-mode .nav-links {
+        background:#f9fafb;
       }
       .nav-links.show { display:flex; }
       .nav-cta { display:none; }
@@ -137,6 +187,10 @@
       background:rgba(15,23,42,0.85);
       border:1px solid rgba(148,163,184,0.55);
       color:var(--text-muted); margin-bottom:14px;
+    }
+    body.light-mode .hero-kicker {
+      background:#e5e7eb;
+      border-color:rgba(148,163,184,0.9);
     }
     .hero-kicker-dot {
       width:8px; height:8px; border-radius:999px;
@@ -186,6 +240,9 @@
       border-color:var(--accent-2);
       box-shadow:0 12px 30px rgba(15,23,42,0.9);
     }
+    body.light-mode .btn-ghost {
+      background:#f9fafb;
+    }
 
     .hero-meta {
       font-size:.78rem; color:var(--text-muted);
@@ -205,6 +262,10 @@
       border:1px solid rgba(148,163,184,0.4);
       box-shadow:var(--shadow-soft); overflow:hidden;
     }
+    body.light-mode .hero-card {
+      background:#ffffff;
+      border-color:rgba(148,163,184,0.5);
+    }
     .hero-card-tag {
       position:absolute; top:14px; right:16px;
       font-size:.7rem; padding:4px 10px; border-radius:999px;
@@ -213,11 +274,18 @@
       color:var(--text-muted);
       text-transform:uppercase; letter-spacing:.12em;
     }
+    body.light-mode .hero-card-tag {
+      background:#e5e7eb;
+    }
     .hero-card-main {
       border-radius:18px; border:1px solid rgba(248,250,252,0.3);
       padding:18px 18px 16px;
       background:radial-gradient(circle at 0 40%,rgba(248,250,252,0.08),transparent 40%)
                  linear-gradient(135deg,rgba(15,23,42,0.96),rgba(15,23,42,0.88));
+    }
+    body.light-mode .hero-card-main {
+      background:#f9fafb;
+      border-color:rgba(148,163,184,0.8);
     }
     .hero-card-title { font-size:1.35rem; font-weight:500; margin-bottom:4px; }
     .hero-card-subtitle { font-size:.8rem; color:var(--text-muted); margin-bottom:14px; }
@@ -231,6 +299,9 @@
       background:rgba(15,23,42,0.98);
       border:1px solid rgba(148,163,184,0.5);
       font-size:.78rem;
+    }
+    body.light-mode .hero-card-pill {
+      background:#ffffff;
     }
     .hero-card-pill span {
       display:block; font-size:.68rem;
@@ -270,6 +341,7 @@
       padding:18px 18px 16px;
       box-shadow:var(--shadow-soft);
     }
+
     .about-list { list-style:none; display:grid; gap:10px; font-size:.9rem; }
     .about-list li::before {
       content:"★"; color:#eab308; font-size:.75rem; margin-right:6px;
@@ -289,11 +361,17 @@
       font-size:.88rem;
       display:flex; flex-direction:column; gap:4px;
     }
+    body.light-mode .service-card {
+      background:#ffffff;
+    }
     .service-title { font-size:.94rem; font-weight:500; }
     .service-chip {
       display:inline-flex; align-items:center; gap:6px;
       font-size:.72rem; padding:3px 8px; border-radius:999px;
       margin-top:4px; background:rgba(15,23,42,0.9); color:var(--text-muted);
+    }
+    body.light-mode .service-chip {
+      background:#e5e7eb;
     }
 
     .gallery-grid {
@@ -313,11 +391,16 @@
       padding:3px 8px; border-radius:999px;
       border:1px solid rgba(148,163,184,0.7);
     }
+    body.light-mode .gallery-item span {
+      background:rgba(15,23,42,0.9);
+      color:#e5e7eb;
+    }
 
     .price-table {
       width:100%; border-collapse:collapse; margin-top:8px; font-size:.86rem;
     }
     .price-table thead { background:rgba(15,23,42,0.95); }
+    body.light-mode .price-table thead { background:#e5e7eb; }
     .price-table th,.price-table td {
       padding:8px 10px; border-bottom:1px solid rgba(148,163,184,0.4); text-align:left;
     }
@@ -336,6 +419,8 @@
       border:1px solid rgba(148,163,184,0.6);
       font-size:.84rem;
     }
+    body.light-mode .testimonial-card { background:#ffffff; }
+
     .testimonial-name { margin-top:8px; font-size:.8rem; color:var(--text-muted); }
 
     .contact-grid {
@@ -355,6 +440,10 @@
     }
     .field textarea {
       border-radius:16px; min-height:90px; resize:vertical; padding-top:8px;
+    }
+    body.light-mode .field input,body.light-mode .field textarea {
+      background:#ffffff;
+      color:#111827;
     }
     .field input:focus,.field textarea:focus {
       border-color:var(--accent);
@@ -387,7 +476,7 @@
     <nav class="nav">
       <div class="logo">
         <div class="logo-pill"></div>
-        <span>New Star Tailor</span>
+        <span>New Star Tailors</span>
       </div>
 
       <div class="nav-toggle" id="navToggle">
@@ -395,14 +484,22 @@
       </div>
 
       <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-i18n-nav-about>About</a>
+        <a href="#services" data-i18n-nav-services>Services</a>
+        <a href="#gallery" data-i18n-nav-gallery>Gallery</a>
+        <a href="#pricing" data-i18n-nav-pricing>Pricing</a>
+        <a href="#contact" data-i18n-nav-contact>Contact</a>
       </div>
 
-      <a href="#contact" class="nav-cta">Book Now</a>
+      <div class="nav-controls">
+        <button class="nav-pill" id="langToggle">
+          <span id="langEn" class="active-lang">EN</span> | <span id="langNp">ने</span>
+        </button>
+        <button class="nav-pill" id="themeToggle" aria-label="Toggle theme">
+          ☾
+        </button>
+        <a href="#contact" class="nav-cta" data-i18n-book-now>Book Now</a>
+      </div>
     </nav>
   </header>
 
@@ -410,69 +507,68 @@
     <!-- HERO -->
     <section class="hero">
       <div>
-        <div class="hero-kicker">
+        <div class="hero-kicker" id="heroKicker">
           <span class="hero-kicker-dot"></span>
           Open for tailoring orders
         </div>
 
-        <h1 class="hero-title">
-          <span>New Star Tailor</span> in Gongabu, Kathmandu.
+        <h1 class="hero-title" id="heroTitle">
+          <span>New Star Tailors</span> in Gongabu, Kathmandu.
         </h1>
-        <p class="hero-subtitle">
-          Modern tailoring with perfect fittings, clean finishing and friendly service.
+        <p class="hero-subtitle" id="heroSubtitle">
+          Modern tailoring with proper fittings, clean finishing and friendly service.
           From daily wear to party outfits, we stitch clothes that feel comfortable and look smart.
         </p>
 
         <div class="hero-cta-row">
-          <!-- REAL phone / WhatsApp -->
-          <a href="tel:+9779849250546" class="btn-primary">
+          <a href="tel:+9779849250546" class="btn-primary" id="heroCall">
             Call 9849250546
           </a>
-          <a href="https://wa.me/9779849250546" target="_blank" class="btn-ghost">
+          <a href="https://wa.me/9779849250546" target="_blank" class="btn-ghost" id="heroWhatsApp">
             WhatsApp us
           </a>
         </div>
 
         <div class="hero-meta">
           <span class="hero-meta-badge">Gongabu • Kathmandu • Nepal</span>
-          <span>Open: Every day • 9:00 – 20:00 (edit if different)</span>
+          <span id="heroHours">Open: Every day • 9:00 – 20:00</span>
         </div>
       </div>
 
       <!-- HERO CARD -->
       <aside class="hero-card" aria-label="Shop quick details">
-        <div class="hero-card-tag">Shop overview</div>
+        <div class="hero-card-tag" id="heroCardTag">Shop overview</div>
         <div class="hero-card-main">
-          <div class="hero-card-title">Today’s availability</div>
-          <div class="hero-card-subtitle">
+          <div class="hero-card-title" id="heroCardTitle">Today’s availability</div>
+          <div class="hero-card-subtitle" id="heroCardSubtitle">
             Walk-in customers welcome. For big orders and events, booking is recommended.
           </div>
 
           <div class="hero-card-grid">
             <div class="hero-card-pill">
-              <span>Average delivery</span>
-              3–5 working days
+              <span id="pill1Label">Average delivery</span>
+              <span id="pill1Text">3–5 working days</span>
             </div>
             <div class="hero-card-pill">
-              <span>Location</span>
-              Gongabu, Kathmandu, Nepal
+              <span id="pill2Label">Location</span>
+              <span id="pill2Text">Gongabu, Kathmandu, Nepal</span>
             </div>
             <div class="hero-card-pill">
-              <span>Contact</span>
-              9849250546 (Call / WhatsApp)
+              <span id="pill3Label">Contact</span>
+              <span id="pill3Text">9849250546 (Call / WhatsApp)</span>
             </div>
             <div class="hero-card-pill">
-              <span>Coordinates</span>
-              27°44'08"N, 85°18'38"E
+              <span id="pill4Label">Coordinates</span>
+              <span id="pill4Text">27°44'08"N, 85°18'38"E</span>
             </div>
           </div>
 
           <div class="hero-card-footer">
             <div style="display:flex;align-items:center;">
               <span class="status-dot"></span>
-              Taking new orders now
+              <span id="heroStatus">Taking new orders now</span>
             </div>
-            <span>New Star Tailor • Est. 2025</span>
+            <span id="heroFooterRight">New Star Tailors • Est. 2025</span>
           </div>
         </div>
       </aside>
@@ -480,16 +576,16 @@
 
     <!-- ABOUT -->
     <section id="about">
-      <p class="section-label">About</p>
-      <h2 class="section-title">A modern tailor with personal care.</h2>
-      <p class="section-subtitle">
-        New Star Tailor is based in Gongabu, Kathmandu. We focus on clean fitting, neat finishing
+      <p class="section-label" id="aboutLabel">About</p>
+      <h2 class="section-title" id="aboutTitle">A modern tailor with personal care.</h2>
+      <p class="section-subtitle" id="aboutSubtitle">
+        New Star Tailors is based in Gongabu, Kathmandu. We focus on clean fitting, neat finishing
         and clear communication, so you always know what you are getting and when it will be ready.
       </p>
 
       <div class="about-grid">
         <div class="card">
-          <ul class="about-list">
+          <ul class="about-list" id="aboutList">
             <li>Friendly one-to-one measurement and fitting for every customer.</li>
             <li>Custom designs for daily wear, office, school and special events.</li>
             <li>Clean stitching, neat lines and strong finishing that lasts longer.</li>
@@ -499,12 +595,12 @@
         </div>
 
         <div class="card">
-          <p style="font-size:0.9rem;margin-bottom:10px;">
+          <p style="font-size:0.9rem;margin-bottom:10px;" id="aboutNoteTitle">
             💡 <strong>Tip for yourself:</strong> you can later edit this paragraph
-            and write in your own style about why you opened New Star Tailor and what you enjoy most.
+            and write in your own style about why you opened New Star Tailors and what you enjoy most.
           </p>
-          <p style="font-size:0.86rem;color:var(--text-muted);">
-            Example: “I started New Star Tailor to give customers a place where they can share their idea
+          <p style="font-size:0.86rem;color:var(--text-muted);" id="aboutNoteBody">
+            Example: “I started New Star Tailors to give customers a place where they can share their idea
             and walk out with clothes that truly fit them. I focus on neat work, on-time delivery and
             fair pricing for everyone.”
           </p>
@@ -514,87 +610,87 @@
 
     <!-- SERVICES -->
     <section id="services">
-      <p class="section-label">Services</p>
-      <h2 class="section-title">Tailoring services at New Star Tailor.</h2>
-      <p class="section-subtitle">
+      <p class="section-label" id="servicesLabel">Services</p>
+      <h2 class="section-title" id="servicesTitle">Tailoring services at New Star Tailors.</h2>
+      <p class="section-subtitle" id="servicesSubtitle">
         These are example services. You can change the text and add more based on what you offer in your shop.
       </p>
 
       <div class="services-grid">
         <article class="service-card">
-          <h3 class="service-title">Custom outfit design</h3>
-          <p>Bring your idea or photo, and we stitch a full outfit with your measurements and fabric choice.</p>
-          <div class="service-chip">Popular service</div>
+          <h3 class="service-title" id="svc1Title">Custom outfit design</h3>
+          <p id="svc1Text">Bring your idea or photo, and we stitch a full outfit with your measurements and fabric choice.</p>
+          <div class="service-chip" id="svc1Chip">Popular service</div>
         </article>
 
         <article class="service-card">
-          <h3 class="service-title">Pant & shirt alterations</h3>
-          <p>Shortening, tightening or adjusting your ready-made clothes so they fit you properly.</p>
-          <div class="service-chip">Fast delivery</div>
+          <h3 class="service-title" id="svc2Title">Pant & shirt alterations</h3>
+          <p id="svc2Text">Shortening, tightening or adjusting your ready-made clothes so they fit you properly.</p>
+          <div class="service-chip" id="svc2Chip">Fast delivery</div>
         </article>
 
         <article class="service-card">
-          <h3 class="service-title">Party & event wear</h3>
-          <p>Special designs for weddings, receptions, parties and festivals with detailed finishing.</p>
-          <div class="service-chip">Pre-booking advised</div>
+          <h3 class="service-title" id="svc3Title">Party & event wear</h3>
+          <p id="svc3Text">Special designs for weddings, receptions, parties and festivals with detailed finishing.</p>
+          <div class="service-chip" id="svc3Chip">Pre-booking advised</div>
         </article>
 
         <article class="service-card">
-          <h3 class="service-title">School & office uniforms</h3>
-          <p>Uniform stitching for students and staff with organised measurement and size records.</p>
-          <div class="service-chip">Bulk orders</div>
+          <h3 class="service-title" id="svc4Title">School & office uniforms</h3>
+          <p id="svc4Text">Uniform stitching for students and staff with organised measurement and size records.</p>
+          <div class="service-chip" id="svc4Chip">Bulk orders</div>
         </article>
 
         <article class="service-card">
-          <h3 class="service-title">Repair & fixing</h3>
-          <p>Repair torn seams, broken zips and loose buttons so you can reuse your favourite clothes.</p>
-          <div class="service-chip">Budget friendly</div>
+          <h3 class="service-title" id="svc5Title">Repair & fixing</h3>
+          <p id="svc5Text">Repair torn seams, broken zips and loose buttons so you can reuse your favourite clothes.</p>
+          <div class="service-chip" id="svc5Chip">Budget friendly</div>
         </article>
 
         <article class="service-card">
-          <h3 class="service-title">Urgent / same-day work</h3>
-          <p>For urgent needs (if time allows) with an extra urgent charge. Contact us to check availability.</p>
-          <div class="service-chip">Limited slots</div>
+          <h3 class="service-title" id="svc6Title">Urgent / same-day work</h3>
+          <p id="svc6Text">For urgent needs (if time allows) with an extra urgent charge. Contact us to check availability.</p>
+          <div class="service-chip" id="svc6Chip">Limited slots</div>
         </article>
       </div>
     </section>
 
     <!-- GALLERY -->
     <section id="gallery">
-      <p class="section-label">Gallery</p>
-      <h2 class="section-title">Sample work from New Star Tailor.</h2>
-      <p class="section-subtitle">
+      <p class="section-label" id="galleryLabel">Gallery</p>
+      <h2 class="section-title" id="galleryTitle">Sample work from New Star Tailors.</h2>
+      <p class="section-subtitle" id="gallerySubtitle">
         Later, you can replace these coloured blocks with real photos of your work (outfits, uniforms,
         shop interior, etc.).
       </p>
 
       <div class="gallery-grid">
         <div class="gallery-item">
-          <span>Men’s outfit</span>
+          <span id="gal1">Men’s outfit</span>
         </div>
         <div class="gallery-item">
-          <span>Women’s dress</span>
+          <span id="gal2">Women’s dress</span>
         </div>
         <div class="gallery-item">
-          <span>School uniform</span>
+          <span id="gal3">School uniform</span>
         </div>
         <div class="gallery-item">
-          <span>Pant alteration</span>
+          <span id="gal4">Pant alteration</span>
         </div>
         <div class="gallery-item">
-          <span>Party wear</span>
+          <span id="gal5">Party wear</span>
         </div>
         <div class="gallery-item">
-          <span>Inside the shop</span>
+          <span id="gal6">Inside the shop</span>
         </div>
       </div>
     </section>
 
     <!-- PRICING -->
     <section id="pricing">
-      <p class="section-label">Pricing</p>
-      <h2 class="section-title">Simple sample price list.</h2>
-      <p class="section-subtitle">
+      <p class="section-label" id="pricingLabel">Pricing</p>
+      <h2 class="section-title" id="pricingTitle">Simple sample price list.</h2>
+      <p class="section-subtitle" id="pricingSubtitle">
         Change the prices to your real rates. Currency is in Nepali Rupees (Rs).
       </p>
 
@@ -602,36 +698,36 @@
         <table class="price-table">
           <thead>
             <tr>
-              <th>Service</th>
-              <th>From</th>
-              <th>Notes</th>
+              <th id="priceColService">Service</th>
+              <th id="priceColFrom">From</th>
+              <th id="priceColNotes">Notes</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Pant shortening (length)</td>
-              <td class="price-tag">Rs. 1400</td>
-              <td>1–2 day delivery</td>
+              <td id="price1Service">Pant shortening (length)</td>
+              <td class="price-tag" id="price1Tag">Rs. 1400</td>
+              <td id="price1Notes">1–2 day delivery</td>
             </tr>
             <tr>
-              <td>Shirt / kurta fitting</td>
-              <td class="price-tag">Rs. 1400</td>
-              <td>Includes trial fitting</td>
+              <td id="price2Service">Shirt / kurta fitting</td>
+              <td class="price-tag" id="price2Tag">Rs. 1400</td>
+              <td id="price2Notes">Includes trial fitting</td>
             </tr>
             <tr>
-              <td>Complete outfit (top & bottom)</td>
-              <td class="price-tag">Rs. 4000</td>
-              <td>Fabric not included</td>
+              <td id="price3Service">Complete outfit (top & bottom)</td>
+              <td class="price-tag" id="price3Tag">Rs. 4000</td>
+              <td id="price3Notes">Fabric not included</td>
             </tr>
             <tr>
-              <td>Party dress / sherwani</td>
-              <td class="price-tag">Rs. 5000</td>
-              <td>Price depends on design</td>
+              <td id="price4Service">Party dress / sherwani</td>
+              <td class="price-tag" id="price4Tag">Rs. 5000</td>
+              <td id="price4Notes">Price depends on design</td>
             </tr>
             <tr>
-              <td>Urgent / same-day work</td>
-              <td class="price-tag">+30%</td>
-              <td>Only if time is available</td>
+              <td id="price5Service">Urgent / same-day work</td>
+              <td class="price-tag" id="price5Tag">+30%</td>
+              <td id="price5Notes">Only if time is available</td>
             </tr>
           </tbody>
         </table>
@@ -640,35 +736,41 @@
 
     <!-- TESTIMONIALS -->
     <section id="testimonials">
-      <p class="section-label">Reviews</p>
-      <h2 class="section-title">What customers say.</h2>
-      <p class="section-subtitle">
+      <p class="section-label" id="reviewsLabel">Reviews</p>
+      <h2 class="section-title" id="reviewsTitle">What customers say.</h2>
+      <p class="section-subtitle" id="reviewsSubtitle">
         When you have real customers, ask them for a short review and replace these sample texts.
       </p>
 
       <div class="testimonials-grid">
         <article class="testimonial-card">
-          “Good fitting, clean stitching and delivery on time. Happy with New Star Tailor.”
-          <p class="testimonial-name">— Local customer</p>
+          <span id="rev1">
+            “Good fitting, clean stitching and delivery on time. Happy with New Star Tailors.”
+          </span>
+          <p class="testimonial-name" id="rev1Name">— Local customer</p>
         </article>
 
         <article class="testimonial-card">
-          “I stitched my uniform here. They followed the measurements properly and the size was perfect.”
-          <p class="testimonial-name">— Student from Gongabu area</p>
+          <span id="rev2">
+            “I stitched my uniform here. They followed the measurements properly and the size was perfect.”
+          </span>
+          <p class="testimonial-name" id="rev2Name">— Student from Gongabu area</p>
         </article>
 
         <article class="testimonial-card">
-          “Easy to talk, clear price and they kept my size for future orders.”
-          <p class="testimonial-name">— Regular client</p>
+          <span id="rev3">
+            “Easy to talk, clear price and they kept my size for future orders.”
+          </span>
+          <p class="testimonial-name" id="rev3Name">— Regular client</p>
         </article>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
-      <p class="section-label">Contact</p>
-      <h2 class="section-title">Visit or contact New Star Tailor.</h2>
-      <p class="section-subtitle">
+      <p class="section-label" id="contactLabel">Contact</p>
+      <h2 class="section-title" id="contactTitle">Visit or contact New Star Tailors.</h2>
+      <p class="section-subtitle" id="contactSubtitle">
         You can call directly, send a WhatsApp message, or fill in this simple enquiry form.
       </p>
 
@@ -678,25 +780,25 @@
           <!-- TODO: change email here to your real email -->
           <form class="contact-form" action="mailto:youremail@example.com" method="post" enctype="text/plain">
             <div class="field">
-              <label for="name">Name</label>
+              <label for="name" id="fieldNameLabel">Name</label>
               <input id="name" name="Name" type="text" placeholder="Your full name" required />
             </div>
 
             <div class="field">
-              <label for="phone">Phone / WhatsApp</label>
+              <label for="phone" id="fieldPhoneLabel">Phone / WhatsApp</label>
               <input id="phone" name="Phone" type="text" placeholder="98..." required />
             </div>
 
             <div class="field">
-              <label for="message">What would you like?</label>
+              <label for="message" id="fieldMsgLabel">What would you like?</label>
               <textarea id="message" name="Message"
                         placeholder="Tell us the service, date and any details." required></textarea>
             </div>
 
-            <button type="submit" class="btn-primary">Send enquiry</button>
+            <button type="submit" class="btn-primary" id="formButton">Send enquiry</button>
           </form>
 
-          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:8px;">
+          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:8px;" id="formNote">
             This form opens your email app to send the message.
             Later you can connect it to an online form service if you want.
           </p>
@@ -706,26 +808,28 @@
         <div class="card">
           <div class="contact-details">
             <p>
-              <span>Address</span>
-              New Star Tailor<br />
-              Gongabu, Kathmandu, Nepal
+              <span id="addrLabel">Address</span>
+              <span id="addrText">
+                New Star Tailors<br />
+                Gongabu, Kathmandu, Nepal
+              </span>
             </p>
             <p>
-              <span>Phone</span>
-              9849250546 (Call / WhatsApp)
+              <span id="phoneLabel">Phone</span>
+              <span id="phoneText">9849250546 (Call / WhatsApp)</span>
             </p>
             <p>
-              <span>Coordinates</span>
-              27°44'08"N, 85°18'38"E
+              <span id="coordLabel">Coordinates</span>
+              <span id="coordText">27°44'08"N, 85°18'38"E</span>
             </p>
             <p>
-              <span>Opening hours</span>
-              Every day: 7:00 – 21:00<br />
+              <span id="hoursLabel">Opening hours</span>
+              <span id="hoursText">Every day: 7:00 – 21:00</span>
             </p>
           </div>
 
-          <div class="map-placeholder">
-            📍 Map: After you add New Star Tailor to Google Maps,
+          <div class="map-placeholder" id="mapNote">
+            📍 Map: After you add New Star Tailors to Google Maps,
             you can embed a real map here using “Share &gt; Embed a map” on Google Maps
             for your coordinates (27°44'08"N, 85°18'38"E).
           </div>
@@ -736,13 +840,14 @@
 
   <!-- FOOTER -->
   <footer>
-    <div>© <span id="year"></span> New Star Tailor, Gongabu, Kathmandu, Nepal. All rights reserved.</div>
-    <div style="margin-top:4px;">
-      Website for New Star Tailor • Simple HTML, CSS &amp; JavaScript.
+    <div id="footerText">© <span id="year"></span> New Star Tailors, Gongabu, Kathmandu, Nepal. All rights reserved.</div>
+    <div style="margin-top:4px;" id="footerSub">
+      Website for New Star Tailors • Simple HTML, CSS &amp; JavaScript.
     </div>
   </footer>
 
   <script>
+    // Mobile nav
     const navToggle = document.getElementById("navToggle");
     const navLinks = document.getElementById("navLinks");
     navToggle.addEventListener("click", () => {
@@ -753,7 +858,472 @@
         navLinks.classList.remove("show");
       });
     });
+
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme toggle (dark / light)
+    const themeToggle = document.getElementById("themeToggle");
+    const storedTheme = localStorage.getItem("nst_theme");
+    if (storedTheme === "light") {
+      document.body.classList.add("light-mode");
+      themeToggle.textContent = "☀";
+    }
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      const isLight = document.body.classList.contains("light-mode");
+      themeToggle.textContent = isLight ? "☀" : "☾";
+      localStorage.setItem("nst_theme", isLight ? "light" : "dark");
+    });
+
+    // Language toggle (English / Nepali)
+    const langToggle = document.getElementById("langToggle");
+    const langEnSpan = document.getElementById("langEn");
+    const langNpSpan = document.getElementById("langNp");
+
+    const translations = {
+      en: {
+        heroKicker: "Open for tailoring orders",
+        heroTitle: '<span>New Star Tailors</span> in Gongabu, Kathmandu.',
+        heroSubtitle:
+          "Modern tailoring with proper fittings, clean finishing and friendly service. From daily wear to party outfits, we stitch clothes that feel comfortable and look smart.",
+        heroCall: "Call 9849250546",
+        heroWhatsApp: "WhatsApp us",
+        heroHours: "Open: Every day • 9:00 – 20:00",
+        heroCardTag: "Shop overview",
+        heroCardTitle: "Today’s availability",
+        heroCardSubtitle:
+          "Walk-in customers welcome. For big orders and events, booking is recommended.",
+        pill1Label: "Average delivery",
+        pill1Text: "3–5 working days",
+        pill2Label: "Location",
+        pill2Text: "Gongabu, Kathmandu, Nepal",
+        pill3Label: "Contact",
+        pill3Text: "9849250546 (Call / WhatsApp)",
+        pill4Label: "Coordinates",
+        pill4Text: '27°44\'08"N, 85°18\'38"E',
+        heroStatus: "Taking new orders now",
+        heroFooterRight: "New Star Tailors • Est. 2025",
+        navAbout: "About",
+        navServices: "Services",
+        navGallery: "Gallery",
+        navPricing: "Pricing",
+        navContact: "Contact",
+        bookNow: "Book Now",
+        aboutLabel: "About",
+        aboutTitle: "A modern tailor with personal care.",
+        aboutSubtitle:
+          "New Star Tailors is based in Gongabu, Kathmandu. We focus on clean fitting, neat finishing and clear communication, so you always know what you are getting and when it will be ready.",
+        aboutListHTML:
+          "<li>Friendly one-to-one measurement and fitting for every customer.</li>" +
+          "<li>Custom designs for daily wear, office, school and special events.</li>" +
+          "<li>Clean stitching, neat lines and strong finishing that lasts longer.</li>" +
+          "<li>Clear pricing before we start, with no hidden charges.</li>" +
+          "<li>Located in Gongabu, easy to reach from Bus Park and nearby areas.</li>",
+        aboutNoteTitle:
+          "💡 <strong>Tip for yourself:</strong> you can later edit this paragraph and write in your own style about why you opened New Star Tailors and what you enjoy most.",
+        aboutNoteBody:
+          "Example: “I started New Star Tailors to give customers a place where they can share their idea and walk out with clothes that truly fit them. I focus on neat work, on-time delivery and fair pricing for everyone.”",
+        servicesLabel: "Services",
+        servicesTitle: "Tailoring services at New Star Tailors.",
+        servicesSubtitle:
+          "These are example services. You can change the text and add more based on what you offer in your shop.",
+        svc1Title: "Custom outfit design",
+        svc1Text:
+          "Bring your idea or photo, and we stitch a full outfit with your measurements and fabric choice.",
+        svc1Chip: "Popular service",
+        svc2Title: "Pant & shirt alterations",
+        svc2Text:
+          "Shortening, tightening or adjusting your ready-made clothes so they fit you properly.",
+        svc2Chip: "Fast delivery",
+        svc3Title: "Party & event wear",
+        svc3Text:
+          "Special designs for weddings, receptions, parties and festivals with detailed finishing.",
+        svc3Chip: "Pre-booking advised",
+        svc4Title: "School & office uniforms",
+        svc4Text:
+          "Uniform stitching for students and staff with organised measurement and size records.",
+        svc4Chip: "Bulk orders",
+        svc5Title: "Repair & fixing",
+        svc5Text:
+          "Repair torn seams, broken zips and loose buttons so you can reuse your favourite clothes.",
+        svc5Chip: "Budget friendly",
+        svc6Title: "Urgent / same-day work",
+        svc6Text:
+          "For urgent needs (if time allows) with an extra urgent charge. Contact us to check availability.",
+        svc6Chip: "Limited slots",
+        galleryLabel: "Gallery",
+        galleryTitle: "Sample work from New Star Tailors.",
+        gallerySubtitle:
+          "Later, you can replace these coloured blocks with real photos of your work (outfits, uniforms, shop interior, etc.).",
+        gal1: "Men’s outfit",
+        gal2: "Women’s dress",
+        gal3: "School uniform",
+        gal4: "Pant alteration",
+        gal5: "Party wear",
+        gal6: "Inside the shop",
+        pricingLabel: "Pricing",
+        pricingTitle: "Simple sample price list.",
+        pricingSubtitle:
+          "Change the prices to your real rates. Currency is in Nepali Rupees (Rs).",
+        priceColService: "Service",
+        priceColFrom: "From",
+        priceColNotes: "Notes",
+        price1Service: "Pant shortening (length)",
+        price1Tag: "Rs. 1400",
+        price1Notes: "1–2 day delivery",
+        price2Service: "Shirt / kurta fitting",
+        price2Tag: "Rs. 1400",
+        price2Notes: "Includes trial fitting",
+        price3Service: "Complete outfit (top & bottom)",
+        price3Tag: "Rs. 4000",
+        price3Notes: "Fabric not included",
+        price4Service: "Party dress / sherwani",
+        price4Tag: "Rs. 5000",
+        price4Notes: "Price depends on design",
+        price5Service: "Urgent / same-day work",
+        price5Tag: "+30%",
+        price5Notes: "Only if time is available",
+        reviewsLabel: "Reviews",
+        reviewsTitle: "What customers say.",
+        reviewsSubtitle:
+          "When you have real customers, ask them for a short review and replace these sample texts.",
+        rev1:
+          "“Good fitting, clean stitching and delivery on time. Happy with New Star Tailors.”",
+        rev1Name: "— Local customer",
+        rev2:
+          "“I stitched my uniform here. They followed the measurements properly and the size was perfect.”",
+        rev2Name: "— Student from Gongabu area",
+        rev3:
+          "“Easy to talk, clear price and they kept my size for future orders.”",
+        rev3Name: "— Regular client",
+        contactLabel: "Contact",
+        contactTitle: "Visit or contact New Star Tailors.",
+        contactSubtitle:
+          "You can call directly, send a WhatsApp message, or fill in this simple enquiry form.",
+        fieldNameLabel: "Name",
+        fieldPhoneLabel: "Phone / WhatsApp",
+        fieldMsgLabel: "What would you like?",
+        formButton: "Send enquiry",
+        formNote:
+          "This form opens your email app to send the message. Later you can connect it to an online form service if you want.",
+        addrLabel: "Address",
+        addrText: "New Star Tailors\nGongabu, Kathmandu, Nepal",
+        phoneLabel: "Phone",
+        phoneText: "9849250546 (Call / WhatsApp)",
+        coordLabel: "Coordinates",
+        coordText: '27°44\'08"N, 85°18\'38"E',
+        hoursLabel: "Opening hours",
+        hoursText: "Every day: 7:00 – 21:00",
+        mapNote:
+          "📍 Map: After you add New Star Tailors to Google Maps, you can embed a real map here using “Share > Embed a map” on Google Maps for your coordinates (27°44'08\"N, 85°18'38\"E).",
+        footerTextPrefix: "© ",
+        footerSub:
+          "Website for New Star Tailors • Simple HTML, CSS & JavaScript."
+      },
+      np: {
+        heroKicker: "सिलाइ तथा अर्डर खुला छ",
+        heroTitle: '<span>न्यू स्टार टेलर्स</span>, गोंगबु, काठमाडौं।',
+        heroSubtitle:
+          "हामी यहाँ सही फिटिङ, सफा फिनिसिङ र मिलनसार सेवासहित कपडा सिलाइ गर्छौं। दैनिकी लगाउने कपडादेखि पार्टी ड्रेससम्म आरामदायी र स्मार्ट देखिने गरी तयार गर्छौं।",
+        heroCall: "फोन: ९८४९२५०५४६",
+        heroWhatsApp: "WhatsApp संदेश पठाउनुहोस्",
+        heroHours: "खुल्ने समय: हरेक दिन • बिहान ९ – साँझ ८",
+        heroCardTag: "दैनिक विवरण",
+        heroCardTitle: "आजको उपलब्धता",
+        heroCardSubtitle:
+          "सिधै पसलमा आउन सक्नुहुन्छ। ठूला अर्डर वा कार्यक्रमका लागि भने अघिबाट बुक गर्नु राम्रो हुन्छ।",
+        pill1Label: "औसत डेलिभरी",
+        pill1Text: "३–५ कार्य दिनभित्र",
+        pill2Label: "स्थान",
+        pill2Text: "गोंगबु, काठमाडौं, नेपाल",
+        pill3Label: "सम्पर्क",
+        pill3Text: "९८४९२५०५४६ (कॉल / WhatsApp)",
+        pill4Label: "स्थानाङ्क",
+        pill4Text: '२७°४४\'०८" उत्तर, ८५°१८\'३८" पूर्व',
+        heroStatus: "हामी अहिले नयाँ अर्डर लिइरहेका छौं",
+        heroFooterRight: "New Star Tailors • स्थापना २०२५",
+        navAbout: "हाम्रोबारे",
+        navServices: "सेवाहरू",
+        navGallery: "फोटोहरू",
+        navPricing: "दरसूची",
+        navContact: "सम्पर्क",
+        bookNow: "अहिले बुक गर्नुहोस्",
+        aboutLabel: "हाम्रोबारे",
+        aboutTitle: "नयाँ पुस्ताको टेलर, आत्मीय व्यवहारसहित।",
+        aboutSubtitle:
+          "New Star Tailors गोंगबु, काठमाडौंमा रहेको आधुनिक टेलर पसल हो। यहाँ सफा फिटिङ, राम्रो फिनिसिङ र स्पष्ट कुरा गरेर समयमै कपडा तयार गरिन्छ।",
+        aboutListHTML:
+          "<li>हरेक ग्राहकका लागि व्यक्तिगत मापन र फिटिङ।</li>" +
+          "<li>दैनिक लगाउने, अफिस, स्कुल र विशेष कार्यक्रमका लागि डिजाइन अनुसार सिलाइ।</li>" +
+          "<li>सफा सिलाइ, बलिया सिलाइ र लामो समय टिक्ने फिनिसिङ।</li>" +
+          "<li>काम सुरु गर्नु अघि नै स्पष्ट मूल्य, लुकेका शुल्क छैनन्।</li>" +
+          "<li>गोंगबु बसपार्क नजिक, सजिलै भेटिने स्थान।</li>",
+        aboutNoteTitle:
+          "💡 <strong>सुझाव:</strong> तपाईंले चाहनु भए यो अनुच्छेद आफ्नै शैलीमा लेखेर किन पसल खोलेको र के मन पर्छ भनेर राख्न सक्नुहुन्छ।",
+        aboutNoteBody:
+          "उदाहरण: “मैले New Star Tailors खोल्नुको उद्देश्य ग्राहकले आफ्नो सोच सजिलै भन्न सकोस् र आफुलाई राम्ररी मिल्ने कपडा लिएर फर्कियोस् भन्ने हो। म सफा काम, समयमै डेलिभरी र सबैका लागि उचित मूल्यमा ध्यान दिन्छु।”",
+        servicesLabel: "सेवाहरू",
+        servicesTitle: "New Star Tailors मा उपलब्ध सिलाइ सेवाहरू।",
+        servicesSubtitle:
+          "तलको सेवाहरू उदाहरण हुन्। तपाईंले आफ्ना वास्तविक सेवाअनुसार नाम र विवरण परिवर्तन गर्न सक्नुहुन्छ।",
+        svc1Title: "आफ्नो डिजाइन अनुसार कपडा",
+        svc1Text:
+          "ग्राहकले ल्याएको फोटो वा आइडिया अनुसार मापन लिएर पुरै सेट तयार गरिन्छ।",
+        svc1Chip: "धेरै माग हुने सेवा",
+        svc2Title: "पान्ट र सर्‍ट फिटीङ / मिलान",
+        svc2Text:
+          "रेडीमेड कपडालाई छोट्याउने, टाइट गर्ने वा एजेस्त गरेर ठीक फिट बनाउने।",
+        svc2Chip: "छिटो सेवा",
+        svc3Title: "पार्टी र विशेष कार्यक्रमका ड्रेस",
+        svc3Text:
+          "विवाह, रिसेप्सन, पार्टी र चाडपर्वका लागि विशेष डिजाइन र फिनिसिङसहित सिलाइ।",
+        svc3Chip: "अघिबाट बुक गर्न सुझाव",
+        svc4Title: "स्कुल र अफिसको युनिफर्म",
+        svc4Text:
+          "विद्यार्थी तथा स्टाफका लागि युनिफर्म सिलाइ, मापन र साइजको रेकर्ड राखेर।",
+        svc4Chip: "थोक अर्डर",
+        svc5Title: "मर्मत र फिक्सिङ",
+        svc5Text:
+          "च्यातिएको सिलाइ, बिग्रिएको जिप, बटन आदि मिलाएर मनपर्ने कपडा फेरि लगाउन मिल्ने बनाउने।",
+        svc5Chip: "सस्तो र उपयोगी",
+        svc6Title: "इमर्जेन्सी / सोही दिनको काम",
+        svc6Text:
+          "समय मिलेमा अतिरिक्त शुल्कसहित सोही दिन वा चाँडो काम गर्ने व्यवस्था। पहिले सम्पर्क गरेर उपलब्धता बुझ्नुहोस्।",
+        svc6Chip: "सीमित समय",
+        galleryLabel: "फोटोहरू",
+        galleryTitle: "New Star Tailors बाट तयार भएका कामका झलकहरू।",
+        gallerySubtitle:
+          "पछि तपाईंले आफ्ना वास्तविक फोटो (ड्रेस, युनिफर्म, पसलभित्रका दृश्य आदि) यहाँ राख्न सक्नुहुन्छ।",
+        gal1: "पुरुषको सेट",
+        gal2: "महिलाको ड्रेस",
+        gal3: "स्कुल युनिफर्म",
+        gal4: "पान्ट मिलान",
+        gal5: "पार्टी ड्रेस",
+        gal6: "पसलभित्रको दृश्य",
+        pricingLabel: "दरसूची",
+        pricingTitle: "सरल नमुना मूल्य सूची।",
+        pricingSubtitle:
+          "तल राखिएका मूल्यहरू उदाहरणका हुन्। कृपया आफ्ना वास्तविक दर अनुसार परिवर्तन गर्नुहोस् (रु मा)।",
+        priceColService: "सेवा",
+        priceColFrom: "देखि",
+        priceColNotes: "टिप्पणी",
+        price1Service: "पान्ट छोट्याउने (लम्बाइ)",
+        price1Tag: "रु. १४००",
+        price1Notes: "१–२ दिनभित्र तयार",
+        price2Service: "शर्ट / कुर्ता फिटीङ",
+        price2Tag: "रु. १४००",
+        price2Notes: "ट्रायल फिटिङ सहित",
+        price3Service: "पूरा सेट (टप र बटम)",
+        price3Tag: "रु. ४०००",
+        price3Notes: "कपडा अलग",
+        price4Service: "पार्टी ड्रेस / शेरवानी",
+        price4Tag: "रु. ५०००",
+        price4Notes: "डिजाइन अनुसार फरक हुन सक्छ",
+        price5Service: "इमर्जेन्सी / सोही दिनको काम",
+        price5Tag: "+३०%",
+        price5Notes: "समय भएमा मात्र",
+        reviewsLabel: "समिक्षाहरू",
+        reviewsTitle: "ग्राहकहरूको अनुभव।",
+        reviewsSubtitle:
+          "पछिसम्म तपाईंले वास्तविक ग्राहकबाट पाएको छोटो समिक्षा यहाँ राख्न सक्नुहुन्छ।",
+        rev1:
+          "“फिटिङ राम्रो, सिलाइ सफा र समयमै डेलिभरी। New Star Tailors सँग सन्तुष्ट छु।”",
+        rev1Name: "— नजिकै बस्ने ग्राहक",
+        rev2:
+          "“मेरा स्कूल युनिफर्म यहाँ सिलाइ गराएँ। लिएजति मापन अनुसार साइज एकदमै मिल्यो।”",
+        rev2Name: "— गोंगबु क्षेत्रका विद्यार्थी",
+        rev3:
+          "“बोलाइ सहज, मूल्य स्पष्ट र अर्को अर्डरका लागि पनि मापन रेकर्ड राखिदिन्छन्।”",
+        rev3Name: "— नियमित ग्राहक",
+        contactLabel: "सम्पर्क",
+        contactTitle: "New Star Tailors मा आउनुहोस् वा सम्पर्क गर्नुहोस्।",
+        contactSubtitle:
+          "फोन, WhatsApp वा तलको सानो फारममार्फत सिधै सन्देश पठाउन सक्नुहुन्छ।",
+        fieldNameLabel: "नाम",
+        fieldPhoneLabel: "फोन / WhatsApp",
+        fieldMsgLabel: "तपाईंलाई के चाहिएको हो?",
+        formButton: "सन्देश पठाउनुहोस्",
+        formNote:
+          "यो फारमले तपाईंको इमेल एप खोल्छ र त्यहीबाट सन्देश पठाइन्छ। पछि चाहनु भए अनलाइन फारम सेवासँग जोड्न सक्नुहुन्छ।",
+        addrLabel: "ठेगाना",
+        addrText: "New Star Tailors\nगोंगबु, काठमाडौं, नेपाल",
+        phoneLabel: "फोन",
+        phoneText: "९८४९२५०५४६ (कॉल / WhatsApp)",
+        coordLabel: "स्थानाङ्क",
+        coordText: '२७°४४\'०८" उत्तर, ८५°१८\'३८" पूर्व',
+        hoursLabel: "खुल्ने समय",
+        hoursText: "हरेक दिन: बिहान ७ – राति ९",
+        mapNote:
+          "📍 नक्शा: New Star Tailors लाई Google Maps मा थपिसकेपछि, “Share > Embed a map” बाट आएको कोड यहाँ राख्न सकिन्छ।",
+        footerTextPrefix: "© ",
+        footerSub:
+          "New Star Tailors को लागि तयार गरिएको सरल वेबसाइट • HTML, CSS र JavaScript।"
+      }
+    };
+
+    function applyLanguage(lang) {
+      const t = translations[lang];
+
+      document.getElementById("heroKicker").innerHTML =
+        '<span class="hero-kicker-dot"></span> ' + t.heroKicker;
+      document.getElementById("heroTitle").innerHTML = t.heroTitle;
+      document.getElementById("heroSubtitle").textContent = t.heroSubtitle;
+      document.getElementById("heroCall").textContent = t.heroCall;
+      document.getElementById("heroWhatsApp").textContent = t.heroWhatsApp;
+      document.getElementById("heroHours").textContent = t.heroHours;
+      document.getElementById("heroCardTag").textContent = t.heroCardTag;
+      document.getElementById("heroCardTitle").textContent = t.heroCardTitle;
+      document.getElementById("heroCardSubtitle").textContent =
+        t.heroCardSubtitle;
+      document.getElementById("pill1Label").textContent = t.pill1Label;
+      document.getElementById("pill1Text").textContent = t.pill1Text;
+      document.getElementById("pill2Label").textContent = t.pill2Label;
+      document.getElementById("pill2Text").textContent = t.pill2Text;
+      document.getElementById("pill3Label").textContent = t.pill3Label;
+      document.getElementById("pill3Text").textContent = t.pill3Text;
+      document.getElementById("pill4Label").textContent = t.pill4Label;
+      document.getElementById("pill4Text").textContent = t.pill4Text;
+      document.getElementById("heroStatus").textContent = t.heroStatus;
+      document.getElementById("heroFooterRight").textContent =
+        t.heroFooterRight;
+
+      document.querySelector("[data-i18n-nav-about]").textContent = t.navAbout;
+      document.querySelector("[data-i18n-nav-services]").textContent =
+        t.navServices;
+      document.querySelector("[data-i18n-nav-gallery]").textContent =
+        t.navGallery;
+      document.querySelector("[data-i18n-nav-pricing]").textContent =
+        t.navPricing;
+      document.querySelector("[data-i18n-nav-contact]").textContent =
+        t.navContact;
+      document.querySelector("[data-i18n-book-now]").textContent = t.bookNow;
+
+      document.getElementById("aboutLabel").textContent = t.aboutLabel;
+      document.getElementById("aboutTitle").textContent = t.aboutTitle;
+      document.getElementById("aboutSubtitle").textContent = t.aboutSubtitle;
+      document.getElementById("aboutList").innerHTML = t.aboutListHTML;
+      document.getElementById("aboutNoteTitle").innerHTML = t.aboutNoteTitle;
+      document.getElementById("aboutNoteBody").textContent = t.aboutNoteBody;
+
+      document.getElementById("servicesLabel").textContent = t.servicesLabel;
+      document.getElementById("servicesTitle").textContent = t.servicesTitle;
+      document.getElementById("servicesSubtitle").textContent =
+        t.servicesSubtitle;
+
+      document.getElementById("svc1Title").textContent = t.svc1Title;
+      document.getElementById("svc1Text").textContent = t.svc1Text;
+      document.getElementById("svc1Chip").textContent = t.svc1Chip;
+      document.getElementById("svc2Title").textContent = t.svc2Title;
+      document.getElementById("svc2Text").textContent = t.svc2Text;
+      document.getElementById("svc2Chip").textContent = t.svc2Chip;
+      document.getElementById("svc3Title").textContent = t.svc3Title;
+      document.getElementById("svc3Text").textContent = t.svc3Text;
+      document.getElementById("svc3Chip").textContent = t.svc3Chip;
+      document.getElementById("svc4Title").textContent = t.svc4Title;
+      document.getElementById("svc4Text").textContent = t.svc4Text;
+      document.getElementById("svc4Chip").textContent = t.svc4Chip;
+      document.getElementById("svc5Title").textContent = t.svc5Title;
+      document.getElementById("svc5Text").textContent = t.svc5Text;
+      document.getElementById("svc5Chip").textContent = t.svc5Chip;
+      document.getElementById("svc6Title").textContent = t.svc6Title;
+      document.getElementById("svc6Text").textContent = t.svc6Text;
+      document.getElementById("svc6Chip").textContent = t.svc6Chip;
+
+      document.getElementById("galleryLabel").textContent = t.galleryLabel;
+      document.getElementById("galleryTitle").textContent = t.galleryTitle;
+      document.getElementById("gallerySubtitle").textContent =
+        t.gallerySubtitle;
+      document.getElementById("gal1").textContent = t.gal1;
+      document.getElementById("gal2").textContent = t.gal2;
+      document.getElementById("gal3").textContent = t.gal3;
+      document.getElementById("gal4").textContent = t.gal4;
+      document.getElementById("gal5").textContent = t.gal5;
+      document.getElementById("gal6").textContent = t.gal6;
+
+      document.getElementById("pricingLabel").textContent = t.pricingLabel;
+      document.getElementById("pricingTitle").textContent = t.pricingTitle;
+      document.getElementById("pricingSubtitle").textContent =
+        t.pricingSubtitle;
+      document.getElementById("priceColService").textContent =
+        t.priceColService;
+      document.getElementById("priceColFrom").textContent = t.priceColFrom;
+      document.getElementById("priceColNotes").textContent = t.priceColNotes;
+      document.getElementById("price1Service").textContent = t.price1Service;
+      document.getElementById("price1Tag").textContent = t.price1Tag;
+      document.getElementById("price1Notes").textContent = t.price1Notes;
+      document.getElementById("price2Service").textContent = t.price2Service;
+      document.getElementById("price2Tag").textContent = t.price2Tag;
+      document.getElementById("price2Notes").textContent = t.price2Notes;
+      document.getElementById("price3Service").textContent = t.price3Service;
+      document.getElementById("price3Tag").textContent = t.price3Tag;
+      document.getElementById("price3Notes").textContent = t.price3Notes;
+      document.getElementById("price4Service").textContent = t.price4Service;
+      document.getElementById("price4Tag").textContent = t.price4Tag;
+      document.getElementById("price4Notes").textContent = t.price4Notes;
+      document.getElementById("price5Service").textContent = t.price5Service;
+      document.getElementById("price5Tag").textContent = t.price5Tag;
+      document.getElementById("price5Notes").textContent = t.price5Notes;
+
+      document.getElementById("reviewsLabel").textContent = t.reviewsLabel;
+      document.getElementById("reviewsTitle").textContent = t.reviewsTitle;
+      document.getElementById("reviewsSubtitle").textContent =
+        t.reviewsSubtitle;
+      document.getElementById("rev1").textContent = t.rev1;
+      document.getElementById("rev1Name").textContent = t.rev1Name;
+      document.getElementById("rev2").textContent = t.rev2;
+      document.getElementById("rev2Name").textContent = t.rev2Name;
+      document.getElementById("rev3").textContent = t.rev3;
+      document.getElementById("rev3Name").textContent = t.rev3Name;
+
+      document.getElementById("contactLabel").textContent = t.contactLabel;
+      document.getElementById("contactTitle").textContent = t.contactTitle;
+      document.getElementById("contactSubtitle").textContent =
+        t.contactSubtitle;
+
+      document.getElementById("fieldNameLabel").textContent =
+        t.fieldNameLabel;
+      document.getElementById("fieldPhoneLabel").textContent =
+        t.fieldPhoneLabel;
+      document.getElementById("fieldMsgLabel").textContent = t.fieldMsgLabel;
+      document.getElementById("formButton").textContent = t.formButton;
+      document.getElementById("formNote").textContent = t.formNote;
+
+      document.getElementById("addrLabel").textContent = t.addrLabel;
+      document.getElementById("addrText").textContent = t.addrText;
+      document.getElementById("phoneLabel").textContent = t.phoneLabel;
+      document.getElementById("phoneText").textContent = t.phoneText;
+      document.getElementById("coordLabel").textContent = t.coordLabel;
+      document.getElementById("coordText").textContent = t.coordText;
+      document.getElementById("hoursLabel").textContent = t.hoursLabel;
+      document.getElementById("hoursText").textContent = t.hoursText;
+      document.getElementById("mapNote").textContent = t.mapNote;
+
+      const yearSpan = document.getElementById("year").outerHTML;
+      document.getElementById("footerText").innerHTML =
+        t.footerTextPrefix + yearSpan + " New Star Tailors, Gongabu, Kathmandu, Nepal. All rights reserved.";
+      document.getElementById("footerSub").textContent = t.footerSub;
+
+      // Update active language style
+      if (lang === "en") {
+        langEnSpan.classList.add("active-lang");
+        langNpSpan.classList.remove("active-lang");
+      } else {
+        langNpSpan.classList.add("active-lang");
+        langEnSpan.classList.remove("active-lang");
+      }
+
+      localStorage.setItem("nst_lang", lang);
+    }
+
+    const storedLang = localStorage.getItem("nst_lang") || "en";
+    applyLanguage(storedLang);
+
+    langToggle.addEventListener("click", () => {
+      const current = localStorage.getItem("nst_lang") || "en";
+      const next = current === "en" ? "np" : "en";
+      applyLanguage(next);
+    });
   </script>
 </body>
 </html>
